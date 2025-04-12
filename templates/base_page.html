@@ -42,6 +42,18 @@
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+        .image-gallery {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .image-gallery img {
+            width: 200px; /* Ширина изображений */
+            height: auto; /* Автоматическая высота для сохранения пропорций */
+            border-radius: 10px; /* Скругление углов */
+            margin: 10px; /* Отступы между изображениями */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Тень для изображений */
+        }
     </style>
 </head>
 <body>
@@ -68,6 +80,15 @@
             <p>Здесь вы можете учить новые термины и их определения. Начните с добавления нового термина или изучите уже существующие!</p>
             <a href="{% url 'add_term' %}" class="btn btn-secondary">Добавить термин</a>
         </div>
+
+        <!-- Галерея изображений -->
+        <div class="image-gallery">
+            <img src="{% static 'images/germany_landscape.jpg' %}" alt="Пейзаж Германии">
+            <img src="{% static 'images/german_culture.jpg' %}" alt="Немецкая культура">
+            <img src="{% static 'images/berlin.jpg' %}" alt="Берлинская стена">
+            <img src="{% static 'images/german_food.jpg' %}" alt="Немецкая еда">
+        </div>
+        
         {% endblock %}
         
         <footer class="footer pt-3 mt-4 text-muted border-top">© 2023</footer>
