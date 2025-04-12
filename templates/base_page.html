@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -7,22 +8,6 @@
     {% load static %}
     <!-- CSS -->
     <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
-    <style>
-        #title-box {
-            background: url("{% static 'background.jpg' %}") no-repeat center center; /* Замените на ваш фон */
-            background-size: cover;
-            color: white;
-        }
-        .footer {
-            background-color: #f8f9fa;
-        }
-        .card {
-            transition: transform 0.2s; /* Эффект при наведении */
-        }
-        .card:hover {
-            transform: scale(1.05);
-        }
-    </style>
 </head>
 <body>
 <main>
@@ -35,49 +20,14 @@
                 </div>
             </a>
         </header>
-        <div class="p-5 mb-4 rounded-3" id="title-box">
+        <div class="p-5 mb-4 bg-light rounded-3" id="title-box">
             <div class="container-fluid py-5">
                 <h1 class="display-1 fw-bold">{% block page-title %}{% endblock %}</h1>
                 <p class="col-md-8 fs-4">{% block page-lead %}{% endblock %}</p>
             </div>
         </div>
-
-        {% block content %}
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <img src="{% static 'image1.jpg' %}" class="card-img-top" alt="Описание изображения 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Заголовок карточки 1</h5>
-                        <p class="card-text">Краткое описание контента карточки 1.</p>
-                        <a href="#" class="btn btn-primary">Читать далее</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <img src="{% static 'image2.jpg' %}" class="card-img-top" alt="Описание изображения 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Заголовок карточки 2</h5>
-                        <p class="card-text">Краткое описание контента карточки 2.</p>
-                        <a href="#" class="btn btn-primary">Читать далее</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <img src="{% static 'image3.jpg' %}" class="card-img-top" alt="Описание изображения 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Заголовок карточки 3</h5>
-                        <p class="card-text">Краткое описание контента карточки 3.</p>
-                        <a href="#" class="btn btn-primary">Читать далее</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% endblock %}
-        
-        <footer class="footer pt-3 mt-4 text-muted border-top text-center">© 2023</footer>
+        {% block content %}{% endblock %}
+        <footer class="footer pt-3 mt-4 text-muted border-top">© 2023</footer>
     </div>
 </main>
 </body>
