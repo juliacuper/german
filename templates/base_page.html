@@ -5,7 +5,6 @@
     <title>{% block pagetitle %}{% endblock %}</title>
     {% load static %}
     <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Подключение Font Awesome -->
     <style>
         body {
             background-color: #f0f8ff; /* Светлый фон */
@@ -67,20 +66,12 @@
         <div class="card p-4">
             <h2>Добро пожаловать!</h2>
             <p>Здесь вы можете учить новые термины и их определения. Начните с добавления нового термина или изучите уже существующие!</p>
-            <a href="{% url 'add_term' %}" class="btn btn-secondary">
-                <i class="fas fa-plus"></i> Добавить термин
-            </a>
-            <a href="{% url 'view_terms' %}" class="btn btn-secondary">
-                <i class="fas fa-book"></i> Просмотреть термины
-            </a>
+            <a href="{% url 'add_term' %}" class="btn btn-secondary">Добавить термин</a>
         </div>
         {% endblock %}
         
         <footer class="footer pt-3 mt-4 text-muted border-top">© 2023</footer>
     </div>
-</main>
-</body>
-</html>
 </main>
 </body>
 </html>
