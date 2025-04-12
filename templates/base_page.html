@@ -3,13 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block pagetitle %}{% endblock %}</title>
-    <!-- load static -->
     {% load static %}
-    <!-- CSS -->
     <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
     <style>
         body {
-            background-color: #FFD700; /* Жёлтый цвет */
+            background-color: #f0f8ff; /* Светлый фон */
+            font-family: 'Arial', sans-serif;
+        }
+        header {
+            background-color: #004d00; /* Темно-зеленый цвет */
+            color: white;
+            padding: 15px 0;
+        }
+        #title-box {
+            background-color: #e0f7fa; /* Светло-голубой фон */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #004d00; /* Темно-зеленый цвет заголовка */
+        }
+        .btn-secondary {
+            background-color: #007bff; /* Основной цвет кнопки */
+            border: none;
+        }
+        .btn-secondary:hover {
+            background-color: #0056b3; /* Цвет кнопки при наведении */
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #004d00;
+            color: white;
+        }
+        .card {
+            margin: 20px 0;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -30,7 +61,15 @@
                 <p class="col-md-8 fs-4">{% block page-lead %}{% endblock %}</p>
             </div>
         </div>
-        {% block content %}{% endblock %}
+        
+        {% block content %}
+        <div class="card p-4">
+            <h2>Добро пожаловать!</h2>
+            <p>Здесь вы можете учить новые термины и их определения. Начните с добавления нового термина или изучите уже существующие!</p>
+            <a href="{% url 'add_term' %}" class="btn btn-secondary">Добавить термин</a>
+        </div>
+        {% endblock %}
+        
         <footer class="footer pt-3 mt-4 text-muted border-top">© 2023</footer>
     </div>
 </main>
