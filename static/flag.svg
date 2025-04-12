@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 10">
+  <rect width="16" height="3.33" fill="#000000"/> <!-- Черная полоса -->
+  <rect y="3.33" width="16" height="3.33" fill="#FF0000"/> <!-- Красная полоса -->
+  <rect y="6.66" width="16" height="3.34" fill="#FFD700"/> <!-- Золотая полоса -->
+</svg>
