@@ -10,6 +10,7 @@ def index(request):
 def terms_list(request):
     terms = terms_work.get_terms_for_table()
     return render(request, "term_list.html", context={"terms": terms})
+    
 
 def examples_list(request):
     examples = terms_work.get_examples()
