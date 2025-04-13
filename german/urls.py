@@ -9,5 +9,6 @@ urlpatterns = [
     path('add-term', views.add_term),
     path('add-example', views.add_example),
     path('send-term', views.send_term),
+    path('send-example', views.send_example),
     path('stats', views.show_stats)
 ]
