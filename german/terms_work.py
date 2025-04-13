@@ -14,7 +14,7 @@ def get_examples():
         cnt = 1
         for line in f.readlines()[1:]:
             term, definition, source = line.split(";")
-            terms.append([cnt, term, definition])
+            examples.append([cnt, term, definition])
             cnt += 1
     return examples
 
