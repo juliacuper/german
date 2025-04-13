@@ -51,7 +51,7 @@
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                 <div class="fs-2 mb-3">
                     <img src="{% static 'flag.svg' %}" alt="Немецкий язык" width="32" height="32"/>
-                    <span>Проект для изучения немецкого языка</span>
+                    <span>Сайт для изучения немецкого языка</span>
                 </div>
             </a>
         </header>
@@ -65,8 +65,8 @@
         {% block content %}
         <div class="card p-4">
             <h2>Добро пожаловать!</h2>
-            <p>Здесь вы можете учить новые термины и их определения. Начните с добавления нового термина или изучите уже существующие!</p>
-            <a href="{% url 'add_term' %}" class="btn btn-secondary">Добавить термин</a>
+            <p>Здесь вы можете выучить новые слова на немецком или добавиь уже изученные Вами ранее.</p>
+            <a href="{% url 'add_term' %}" class="btn btn-secondary">Добавить слово</a>
         </div>
         {% endblock %}
         
