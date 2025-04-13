@@ -22,7 +22,7 @@
             <div>
                 <h3 class="fs-2">Список слов</h3>
                 <p>Словарь новых слов на немецком языке</p>
-                <a href="/terms-list" class="btn btn-primary">Посмотреть</a>
+                <a href="/terms-list" class="btn btn-custom">Посмотреть</a>
             </div>
         </div>
         <div class="col d-flex">
@@ -34,7 +34,7 @@
             <div>
                 <h3 class="fs-2">Примеры предложений</h3>
                 <p>Предложения, составленные с использованием новой лексики</p>
-                <a href="/examples-list" class="btn btn-primary">Посмотреть</a>
+                <a href="/examples-list" class="btn btn-custom">Посмотреть</a>
             </div>
         </div>
 
@@ -48,7 +48,7 @@
             <div>
                 <h3 class="fs-2">Форма для ввода новых слов</h3>
                 <p>Здесь можно добавить новое слово, которое Вы хотите выучить</p>
-                <a href="/add-term" class="btn btn-primary">Заполнить</a>
+                <a href="/add-term" class="btn btn-custom">Заполнить</a>
             </div>
         </div>
         <div class="col d-flex">
@@ -60,7 +60,7 @@
             <div>
                 <h3 class="fs-2">Форма для ввода предложений</h3>
                 <p>Здесь можно добавить новое предложение, которое Вы хотите выучить</p>
-                <a href="/add-example" class="btn btn-primary">Заполнить</a>
+                <a href="/add-example" class="btn btn-custom">Заполнить</a>
             </div>
         </div>
 
@@ -74,10 +74,19 @@
             <div>
                 <h3 class="fs-2">Статистика</h3>
                 <p>Количество слов, представленных на данном сайте</p>
-                <a href="/stats" class="btn btn-primary">Посмотреть</a>
+                <a href="/stats" class="btn btn-custom">Посмотреть</a>
             </div>
         </div>
 
     </div>
 </div>
-{% endblock %}
+
+<style>
+    .btn-custom {
+        background-color: yellow; /* Желтый фон */
+        color: black; /* Черный текст */
+        border: none; /* Убираем границу */
+    }
+    .btn-custom:hover {
+        background-color: #e6e600; /* Немного темнее при наведении */
+    }
