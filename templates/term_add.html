@@ -1,13 +1,11 @@
 {% extends "base_page.html" %}
 
 {% block page-title %}
-Добавить термин
+Добавить новое слово
 {% endblock %}
 
 {% block page-lead %}
-Когда вы нажмёте на кнопку &laquo;Отправить&raquo;, веб-приложению отправится POST-запрос.
-При этом в полях <span class="fst-italic">Имя</span> и <span class="fst-italic">Email</span> есть атрибут
-<code>value required</code>, который подсказывает пользователю о необходимости заполнения — это свойство Bootstrap.
+После заполнения всех полей, не забудьте нажать на кнопку  &laquo;Отправить&raquo;.
 {% endblock %}
 
 
@@ -23,22 +21,22 @@
                 <input type="text" class="form-control input-lg" name="name" id="name" placeholder="Иван" value required>
             </div>
             <div class="col-md-6">
-                <label for="email">Ваш контактный email:</label>
+                <label for="email">Ваш email:</label>
                 <input type="text" class="form-control input-lg" name="email" id="email" placeholder="ivan@ivanov.com" value required>
             </div>
         </div>
         <div class="row px-5 py-2">
-            <h3>Ваш термин</h3>
+            <h3>Ваше слово</h3>
         </div>
         <div class="row px-5 py-2">
             <div class="col-md-4">
-                <label for="new_term">Термин</label>
+                <label for="new_term">Слово</label>
                 <input type="text" class="form-control input-lg" name="new_term" id="new_term">
             </div>
             <div class="col-md-8">
                 <label for="new_definition">Перевод</label>
                 <textarea type="text" class="form-control input-lg" name="new_definition" id="new_definition" aria-describedby="definition_note" rows="3"></textarea>
-                <div id="definition_note" class="form-text">Постарайтесь в 3-5 слов</div>
+                <div id="definition_note" class="form-text">Постарайтесь уложиться в 20 символов</div>
             </div>
         </div>
         <div class="row px-5 py-2">
