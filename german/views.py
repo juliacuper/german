@@ -34,13 +34,13 @@ def send_term(request):
         context = {"user": user_name}
         if len(new_definition) == 0:
             context["success"] = False
-            context["comment"] = "Описание должно быть не пустым"
+            context["comment"] = "Перевод должен быть не пустым"
         elif len(new_term) == 0:
             context["success"] = False
-            context["comment"] = "Термин должен быть не пустым"
+            context["comment"] = "Слово должно быть не пустым"
         else:
             context["success"] = True
-            context["comment"] = "Ваш термин принят"
+            context["comment"] = "Ваше слово принято"
             terms_work.write_term(new_term, new_definition)
         if context["success"]:
             context["success-title"] = ""
@@ -57,7 +57,7 @@ def send_example(request):
         context = {"user": user_name}
         if len(new_definition) == 0:
             context["success"] = False
-            context["comment"] = "Описание должно быть не пустым"
+            context["comment"] = "Перевод должен быть не пустым"
         elif len(new_example) == 0:
             context["success"] = False
             context["comment"] = "Предложение должно быть не пустым"
