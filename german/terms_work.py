@@ -29,6 +29,19 @@ def write_term(new_term, new_definition):
     new_terms = [title] + terms_sorted
     with open("./data/terms.csv", "w", encoding="utf-8") as f:
         f.write("\n".join(new_terms))
+        
+
+def write_examples(new_example, new_definition):
+    new_example_line = f"{new_example};{new_definition};user"
+    with open("./data/examples.csv", "r", encoding="utf-8") as f:
+        existing_examples = [l.strip("\n") for l in f.readlines()]
+        title = existing_examples[0]
+        old_examples = existing_examples[1:]
+    examples_sorted = old_examples + [new_example_line]
+    examples_sorted.sort()
+    new_examples = [title] + examples_sorted
+    with open("./data/examples.csv", "w", encoding="utf-8") as f:
+        f.write("\n".join(new_examples))
 
 
 def get_terms_stats():
