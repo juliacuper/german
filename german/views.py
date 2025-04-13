@@ -11,6 +11,10 @@ def terms_list(request):
     terms = terms_work.get_terms_for_table()
     return render(request, "term_list.html", context={"terms": terms})
 
+def examples_list(request):
+    examples = examples_work.get_examples()
+    return render(request, "examples_list.html", context={"examples": examples})
+
 
 def add_term(request):
     return render(request, "term_add.html")
