@@ -8,6 +8,15 @@ def get_terms_for_table():
             cnt += 1
     return terms
 
+def get_examples():
+    examples = []
+    with open("./data/examples.csv", "r", encoding="utf-8") as f:
+        cnt = 1
+        for line in f.readlines()[1:]:
+            term, definition, source = line.split(";")
+            terms.append([cnt, term, definition])
+            cnt += 1
+    return examples
 
 def write_term(new_term, new_definition):
     new_term_line = f"{new_term};{new_definition};user"
@@ -45,12 +54,4 @@ def get_terms_stats():
     }
     return stats
 
-def get_examples():
-    examples = []
-    with open("./data/examples.csv", "r", encoding="utf-8") as f:
-        cnt = 1
-        for line in f.readlines()[1:]:
-            term, definition, source = line.split(";")
-            terms.append([cnt, term, definition])
-            cnt += 1
-    return examples
+
