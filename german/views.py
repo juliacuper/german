@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.cache import cache
 from . import terms_work
 
@@ -23,23 +23,26 @@ def send_term(request):
         new_term = request.POST.get("new_term", "")
         new_definition = request.POST.get("new_definition", "").replace(";", ",")
         context = {"user": user_name}
-        if len(new_definition) == 0:
+
+        if not new_definition:
             context["success"] = False
             context["comment"] = "Описание должно быть не пустым"
-        elif len(new_term) == 0:
+        elif not new_term:
             context["success"] = False
             context["comment"] = "Термин должен быть не пустым"
         else:
             context["success"] = True
             context["comment"] = "Ваш термин принят"
             terms_work.write_term(new_term, new_definition)
+
         if context["success"]:
             context["success-title"] = ""
+
         return render(request, "term_request.html", context)
     else:
-        add_term(request)
+        return redirect('add_term')  # предполагается, что у вас есть URL с именем 'add_term'
 
 
 def show_stats(request):
     stats = terms_work.get_terms_stats()
-    return render(request, "stats.html", stats)
+    return render(request, "stats.html", context={"stats": stats})  # добавлен контекст для stats
