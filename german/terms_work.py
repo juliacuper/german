@@ -44,3 +44,13 @@ def get_terms_stats():
         "words_min": min(defin_len)
     }
     return stats
+
+def get_examples_for_table():
+    examples = []
+    with open("./data/examples.csv", "r", encoding="utf-8") as f:
+        cnt = 1
+        for line in f.readlines()[1:]:
+            term, definition, source = line.split(";")
+            terms.append([cnt, term, definition])
+            cnt += 1
+    return examples
