@@ -12,7 +12,7 @@ def terms_list(request):
     return render(request, "term_list.html", context={"terms": terms})
 
 def examples_list(request):
-    examples = examples_work.get_examples()
+    examples = terms_work.get_examples()
     return render(request, "examples_list.html", context={"examples": examples})
 
 
