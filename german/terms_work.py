@@ -31,7 +31,7 @@ def write_term(new_term, new_definition):
         f.write("\n".join(new_terms))
         
 
-def write_examples(new_example, new_definition):
+def write_example(new_example, new_definition):
     new_example_line = f"{new_example};{new_definition};user"
     with open("./data/examples.csv", "r", encoding="utf-8") as f:
         existing_examples = [l.strip("\n") for l in f.readlines()]
