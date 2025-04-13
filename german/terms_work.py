@@ -45,7 +45,7 @@ def get_terms_stats():
     }
     return stats
 
-def get_examples_for_table():
+def get_examples():
     examples = []
     with open("./data/examples.csv", "r", encoding="utf-8") as f:
         cnt = 1
