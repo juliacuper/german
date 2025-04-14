@@ -44,7 +44,7 @@ def write_example(new_example, new_definition):
         f.write("\n".join(new_examples))
 
 
-def get_terms_stats():
+def get_stats():
     db_terms = 0
     user_terms = 0
     defin_len = []
@@ -63,25 +63,4 @@ def get_terms_stats():
         "terms_added": user_terms
     }
     return stats_terms
-
-def get_examples_stats():
-    db_examples = 0
-    user_examples = 0
-    defin_len = []
-    with open("./data/examples.csv", "r", encoding="utf-8") as f:
-        for line in f.readlines()[1:]:
-            term, defin, added_by = line.split(";")
-            words = defin.split()
-            defin_len.append(len(words))
-            if "user" in added_by:
-                user_examples += 1
-            elif "db" in added_by:
-                db_examples += 1
-    stats_examples = {
-        "examples_all": db_examples + user_examples,
-        "examples_own": db_examples,
-        "examples_added": user_examples
-    }
-    return stats_examples
-
 
