@@ -10,6 +10,5 @@ urlpatterns = [
     path('add-example', views.add_example),
     path('send-term', views.send_term),
     path('send-example', views.send_example),
-    path('stats-terms', views.show_terms_stats),
-    path('stats-examples', views.show_examples_stats)
+    path('stats', views.show_stats)
 ]
