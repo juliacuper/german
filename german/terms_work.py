@@ -57,12 +57,12 @@ def get_terms_stats():
                 user_terms += 1
             elif "db" in added_by:
                 db_terms += 1
-    stats-terms = {
+    stats_terms = {
         "terms_all": db_terms + user_terms,
         "terms_own": db_terms,
         "terms_added": user_terms
     }
-    return stats-terms
+    return stats_terms
 
 def get_examples_stats():
     db_examples = 0
@@ -77,11 +77,11 @@ def get_examples_stats():
                 user_examples += 1
             elif "db" in added_by:
                 db_examples += 1
-    stats-examples = {
+    stats_examples = {
         "examples_all": db_examples + user_examples,
         "examples_own": db_examples,
         "examples_added": user_examples
     }
-    return stats-examples
+    return stats_examples
 
 
