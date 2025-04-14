@@ -76,6 +76,7 @@ def show_terms_stats(request):
     stats = terms_work.get_terms_stats()
     return render(request, "stats.html", stats)
 
+
 def show_examples_stats(request):
     stats = examples_work.get_examples_stats()
     return render(request, "stats.html", stats)
