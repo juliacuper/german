@@ -48,7 +48,7 @@ def write_example(new_example, new_definition):
         f.write("\n".join(new_examples))
 
 
-def get_terms_stats():
+def get_stats():
     db_terms = 0
     user_terms = 0
     defin_len = []
