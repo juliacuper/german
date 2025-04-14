@@ -5,55 +5,82 @@ This module contains views for handling requests related to terms and examples,
 including listing, adding, and sending data, as well as displaying statistics.
 """
 
-from django.shortcuts import render, redirect
-from .models import Term, Example
+from django.shortcuts import render
+from django.core.cache import cache
+from . import terms_work
+
 
 def index(request):
-    """Render the index page."""
-    return render(request, 'german/index.html')
+    return render(request, "index.html")
+
 
 def terms_list(request):
-    """Display a list of terms."""
-    terms = Term.objects.all()
-    return render(request, 'german/terms_list.html', {'terms': terms})
+    terms = terms_work.get_terms_for_table()
+    return render(request, "term_list.html", context={"terms": terms})
+    
 
 def examples_list(request):
-    """Display a list of examples."""
-    examples = Example.objects.all()
-    return render(request, 'german/examples_list.html', {'examples': examples})
+    examples = terms_work.get_examples()
+    return render(request, "examples_list.html", context={"examples": examples})
+
 
 def add_term(request):
-    """Handle adding a new term."""
-    if request.method == "POST":
-        # Code to add term
-        return redirect('terms_list')
-    return render(request, 'german/add_term.html')
+    return render(request, "term_add.html")
+
 
 def add_example(request):
-    """Handle adding a new example."""
-    if request.method == "POST":
-        # Code to add example
-        return redirect('examples_list')
-    return render(request, 'german/add_example.html')
+    return render(request, "example_add.html")
+
 
 def send_term(request):
-    """Handle sending a term."""
     if request.method == "POST":
-        # Code to send term
-        return redirect('terms_list')
-    return render(request, 'german/send_term.html')
+        cache.clear()
+        user_name = request.POST.get("name")
+        new_term = request.POST.get("new_term", "")
+        new_definition = request.POST.get("new_definition", "").replace(";", ",")
+        context = {"user": user_name}
+        if len(new_definition) == 0:
+            context["success"] = False
+            context["comment"] = "Перевод должен быть не пустым"
+        elif len(new_term) == 0:
+            context["success"] = False
+            context["comment"] = "Слово должно быть не пустым"
+        else:
+            context["success"] = True
+            context["comment"] = "Ваше слово принято"
+            terms_work.write_term(new_term, new_definition)
+        if context["success"]:
+            context["success-title"] = ""
+        return render(request, "term_request.html", context)
+    else:
+        add_term(request)
 
 def send_example(request):
-    """Handle sending an example."""
     if request.method == "POST":
-        # Code to send example
-        return redirect('examples_list')
-    return render(request, 'german/send_example.html')
+        cache.clear()
+        user_name = request.POST.get("name")
+        new_example = request.POST.get("new_example", "")
+        new_definition = request.POST.get("new_definition", "").replace(";", ",")
+        context = {"user": user_name}
+        if len(new_definition) == 0:
+            context["success"] = False
+            context["comment"] = "Перевод должен быть не пустым"
+        elif len(new_example) == 0:
+            context["success"] = False
+            context["comment"] = "Предложение должно быть не пустым"
+        else:
+            context["success"] = True
+            context["comment"] = "Ваше предложение принято"
+            terms_work.write_example(new_example, new_definition)
+        if context["success"]:
+            context["success-title"] = ""
+        return render(request, "example_request.html", context)
+    else:
+        add_example(request)
+
 
 def show_stats(request):
-    """Display statistics."""
-    # Code to gather statistics
-    return render(request, 'german/stats.html')
+    stats = terms_work.get_stats()
     return render(request, "stats.html", stats)
 
 
