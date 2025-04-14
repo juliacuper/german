@@ -73,11 +73,11 @@ def send_example(request):
 
 
 def show_terms_stats(request):
-    stats-terms = terms_work.get_terms_stats()
-    return render(request, "stats.html", stats-terms)
+    stats_terms = terms_work.get_terms_stats()
+    return render(request, "stats.html", stats_terms)
 
 
 def show_examples_stats(request):
-    stats-examples = examples_work.get_examples_stats()
-    return render(request, "stats.html", stats-examples)
+    stats_examples = examples_work.get_examples_stats()
+    return render(request, "stats.html", stats_examples)
 
