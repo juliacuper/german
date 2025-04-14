@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="container px-4 py-5" id="stats-terms">
+<div class="container px-4 py-5" id="stats">
     <div>
         <h3 class="py-2">Количество слов</h3>
     </div>
@@ -29,27 +29,4 @@
     </div>
 </div>
 {% endblock %}
-
-{% block content %}
-<div class="container px-4 py-5" id="stats-examples">
-    <div>
-        <h3 class="py-2">Количество предложений</h3>
-    </div>
-    <div class="row text-center">
-        <div class="col-md-4">
-            <h4>{{ examples_all }}</h4>
-            <p class="text-muted">всего</p>
-        </div>
-        <div class="col-md-4">
-            <h4>{{ examples_own }}</h4>
-            <p class="text-muted">изначально на сайте</p>
-        </div>
-        <div class="col-md-4">
-            <h4>{{ examples_added }}</h4>
-            <p class="text-muted">добавленных через <a href="/add-example">форму добавления новых предложений</a></p>
-        </div>
-    </div>
-</div>
-{% endblock %}
-
 
